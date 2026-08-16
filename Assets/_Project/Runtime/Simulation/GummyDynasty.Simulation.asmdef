@@ -1,0 +1,15 @@
+{
+  "name": "GummyDynasty.Simulation",
+  "rootNamespace": "GummyDynasty.Simulation",
+  "references": [
+    "GummyDynasty.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,17 @@
+{
+  "name": "GummyDynasty.UI",
+  "rootNamespace": "GummyDynasty.UI",
+  "references": [
+    "GummyDynasty.Core",
+    "GummyDynasty.Simulation",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,42 +1,38 @@
 # GummyDynasty
 
-New Unity **6.3 LTS** project (`6000.3.22f1`) on the `somapptic` account.
+Unity **6.3 LTS** (`6000.3.22f1`, Personal) warfare toy box: gummy-bear armies in large physical battles. Hierarchical abstraction + Umwelt-derived cognition. Castle siege and a train fight are later evidence, not the product.
 
-This is a production-shaped shell, not a vertical slice. Domain systems go in after the first design pass.
+Read `Docs/` before changing architecture.
 
-## Editor
-
-- Unity **6000.3.22f1** (Personal). Do not use 2022.3.65f1 (Enterprise XLTS).
-- URP + Input System + Cinemachine + Timeline.
-- Company: Somapptic. Product: GummyDynasty.
-- Cloud: org `somapptic`, project `GummyDynasty` (`f39c2cd0-2bad-4ac0-902e-63f48b75baa8`).
+| Doc | Role |
+|---|---|
+| `Docs/PROJECT_STATE.md` | what works, what's next |
+| `Docs/ARCHITECTURE.md` | what the code actually is |
+| `Docs/UMWELT_MAPPING.md` | what we took from `ws-win/umwelt` |
+| `Docs/RESEARCH_LEDGER.md` | experiments |
+| `Docs/BENCHMARKS.md` | frame-time tables |
+| `Docs/HANDOFF.md` | how a new Unity dev pokes the toy |
 
 ## Open
 
-1. Unity Hub, signed in as `somapptic@gmail.com`.
-2. Add project → `C:\Users\Luke Spooner\wkspaces\GummyDynasty`.
-3. First open will import packages and run `GummyDynastyBootstrap` (creates URP assets + Boot/Main scenes if missing).
+1. Unity Hub as `somapptic@gmail.com`. Editor **6000.3.22f1** only (never 2022.3.65f1).
+2. Project path: `C:\Users\Luke Spooner\wkspaces\GummyDynasty`.
+3. First open imports packages and runs bootstrap (URP + Boot/Main + toy arena).
+
+## Play the toy
+
+`1/2/3` spawn · click select · space launch · `K` knock · `F` fire · `B` smash wall · `R` reset · `F5–F8` bench · RMB orbit.
 
 ## Layout
 
 | Folder | Role |
 |---|---|
-| `Assets/_Project/Runtime/Core` | Boot, clock, events, service registry. No presentation. |
-| `Assets/_Project/Runtime/Simulation` | Authoritative state and commands. No cameras/UI. |
-| `Assets/_Project/Runtime/Presentation` | Scene views, cameras, VFX. |
-| `Assets/_Project/Runtime/Input` | Input System wrapper. |
-| `Assets/_Project/Runtime/UI` | UI Toolkit / HUD. |
-| `Assets/_Project/Editor` | First-run bootstrap and editor tools. |
-| `Assets/_Project/Content` | Art, audio, prefabs, ScriptableObjects, pipeline settings. |
-| `Assets/_Project/Scenes` | `Boot` then `Main`. |
-| `Assets/Tests` | EditMode + PlayMode. |
+| `Runtime/Core` | boot, services, events |
+| `Runtime/Cognition` | BeliefField (η, dissipative decay, self-tag) |
+| `Runtime/Simulation` | bodies, arena, session — no cameras |
+| `Runtime/Presentation` | orbit camera |
+| `Runtime/Input` | host-debug keys |
+| `Runtime/UI` | host HUD (not the player HUD) |
+| `Docs` | ledger |
 
-Assemblies keep Simulation free of UI so we can grow systems without a spaghetti `GameManager`.
-
-## Play
-
-Boot scene loads Main. ESC in play mode does nothing until we wire pause.
-
-## Next
-
-Need the design brief (genre, 2D/3D, single vs multiplayer, scope) before the intense build starts.
+Cloud: org `somapptic`, project `GummyDynasty` (`f39c2cd0-2bad-4ac0-902e-63f48b75baa8`).

@@ -4,6 +4,7 @@
   "references": [
     "GummyDynasty.Core",
     "GummyDynasty.Simulation",
+    "GummyDynasty.Cognition",
     "UnityEngine.TestRunner",
     "UnityEditor.TestRunner"
   ],

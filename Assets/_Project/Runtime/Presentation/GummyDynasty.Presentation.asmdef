@@ -5,7 +5,8 @@
     "GummyDynasty.Core",
     "GummyDynasty.Simulation",
     "Unity.RenderPipelines.Universal.Runtime",
-    "Cinemachine"
+    "Cinemachine",
+    "Unity.InputSystem"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

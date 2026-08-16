@@ -1,10 +1,8 @@
 {
-  "name": "GummyDynasty.Input",
-  "rootNamespace": "GummyDynasty.Input",
+  "name": "GummyDynasty.Cognition",
+  "rootNamespace": "GummyDynasty.Cognition",
   "references": [
-    "GummyDynasty.Core",
-    "GummyDynasty.Simulation",
-    "Unity.InputSystem"
+    "GummyDynasty.Core"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

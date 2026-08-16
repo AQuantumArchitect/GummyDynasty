@@ -4,6 +4,7 @@
   "references": [
     "GummyDynasty.Core",
     "GummyDynasty.Simulation",
+    "GummyDynasty.Cognition",
     "Unity.InputSystem"
   ],
   "includePlatforms": [],

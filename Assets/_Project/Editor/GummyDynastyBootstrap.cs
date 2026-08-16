@@ -90,9 +90,13 @@ namespace GummyDynasty.Editor
                     cam.gameObject.AddComponent<UniversalAdditionalCameraData>();
 
                 var sim = new GameObject("SessionDirector", typeof(GummyDynasty.Simulation.SessionDirector));
+                var arena = new GameObject("ToyArena", typeof(GummyDynasty.Simulation.ToyArena), typeof(GummyDynasty.Simulation.ToySandboxDirector));
                 var hud = new GameObject("Hud", typeof(GummyDynasty.UI.HudController));
-                var input = new GameObject("Input", typeof(GummyDynasty.Input.PlayerInputRouter));
+                var input = new GameObject("Input", typeof(GummyDynasty.Input.PlayerInputRouter), typeof(GummyDynasty.Input.ToyHostInput));
+                if (cam != null)
+                    cam.transform.position = new Vector3(0f, 8f, -14f);
                 _ = sim;
+                _ = arena;
                 _ = hud;
                 _ = input;
                 EditorSceneManager.SaveScene(main, MainScenePath);

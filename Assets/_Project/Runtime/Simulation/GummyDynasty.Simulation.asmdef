@@ -2,7 +2,8 @@
   "name": "GummyDynasty.Simulation",
   "rootNamespace": "GummyDynasty.Simulation",
   "references": [
-    "GummyDynasty.Core"
+    "GummyDynasty.Core",
+    "GummyDynasty.Cognition"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

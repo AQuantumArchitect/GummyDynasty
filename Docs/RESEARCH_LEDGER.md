@@ -22,9 +22,9 @@ FOLLOW-UP
 - **HYPOTHESIS:** Yes, after the editor installer finishes.
 - **IMPLEMENTATION:** Hub/editor first open + bootstrap.
 - **COMPARISON:** n/a
-- **RESULT:** pending (editor not installed at time of writing)
-- **DECISION:** pending
-- **FOLLOW-UP:** If first open OOMs or license-fails, stop and record. Do not install 2022.3.65f1.
+- **RESULT:** Yes. 6000.3.22f1 Personal installed. Batchmode first-open compiled all assemblies. License groups: old ULF `F4-TNUX-…` and somapptic `20067637073452-UnityPersonal`. EditMode 9/9. Boot/Main exist. ~16 GB RAM, no OOM on import.
+- **DECISION:** Stay on 6000.3.22f1 Personal. Do not use 2022.3.65f1.
+- **FOLLOW-UP:** Human play-mode for E1.
 
 ## E1 — PhysX ragdoll budget (Benchmark A)
 

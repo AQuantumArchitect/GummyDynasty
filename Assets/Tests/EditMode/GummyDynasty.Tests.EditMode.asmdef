@@ -4,19 +4,15 @@
   "references": [
     "GummyDynasty.Core",
     "GummyDynasty.Simulation",
-    "GummyDynasty.Cognition",
-    "UnityEngine.TestRunner",
-    "UnityEditor.TestRunner"
+    "GummyDynasty.Cognition"
   ],
   "includePlatforms": [
     "Editor"
   ],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
-  "overrideReferences": true,
-  "precompiledReferences": [
-    "nunit.framework.dll"
-  ],
+  "overrideReferences": false,
+  "precompiledReferences": [],
   "autoReferenced": false,
   "defineConstraints": [
     "UNITY_INCLUDE_TESTS"

@@ -4,40 +4,39 @@ Keep this short. Reread it.
 
 ## Current milestone
 
-**M0 in progress → M1 implementation started.**
+**M0 complete. M1/M2 code compiled and tested. Waiting on a human play-mode pass.**
 
-Unity 6.3.22 (`6000.3.22f1`) Personal is the editor. Installer was still downloading when this file was written. Project has not had a first editor open yet, so URP assets and Boot/Main scenes are created by `GummyDynastyBootstrap` on first open.
+Editor `6000.3.22f1` Personal is installed at `C:\Program Files\Unity\Hub\Editor\6000.3.22f1`. First batchmode open compiled every GummyDynasty assembly. Bootstrap created URP + Boot/Main. EditMode tests: **9/9 passed**.
 
 ## Working
 
-- Unity 6.3 LTS project shell, Personal / somapptic Cloud
+- Unity 6.3.22 Personal (ULF + somapptic assigned seat)
+- Windows IL2CPP / standalone support
 - Assembly walls: Core, Cognition, Simulation, Presentation, Input, UI, Editor, Tests
-- Session clock (`SessionState` / `SessionDirector`)
-- C# Umwelt-host contract (`BeliefField`: observe η, dissipative decay, parent reduce, self-tag)
-- M1 toy systems in code: `PhysicalPersonality`, `GummyFactory`, `GummyBody`, `ToyArena`, `ToySandboxDirector`, breakable parts, projectile
-- EditMode tests for session + belief field
+- `BeliefField` + 7 cognition tests
+- Session clock + 2 tests
+- M1/M2 toy code compiled into Main: gummies, crate wall, projectiles, host HUD, orbit camera
+- URP asset + Boot/Main scenes on disk
 
 ## Not working yet
 
-- Editor binary `C:\Program Files\Unity\Hub\Editor\6000.3.22f1` (download/install)
-- First play-mode run, URP assets, scenes on disk
-- Measured ragdoll budget (Benchmark A)
+- Play-mode evidence (Benchmark A numbers). Batchmode cannot flop gummies.
 - Hierarchical factions, ladder, phones, machines, castle, train
 
 ## Immediate objectives
 
-1. Finish editor install + first Hub open.
-2. Play `Main` and confirm gummies spawn, flop, launch, break a wall.
-3. Record Benchmark A on this laptop (i7-5700HQ, 16 GB, GTX 960M).
-4. Wire M2 inspector onto a selected gummy.
+1. Open Main in the editor GUI and play the toy.
+2. Record Benchmark A (F5–F8) on this laptop.
+3. Tune default jelly if the first pile is boring or explodes.
 
 ## Known failures
 
-- None measured. No play-mode evidence yet.
+- First batchmode quit reported compiler errors because the EditMode asmdef listed TestRunner twice. Fixed.
+- Bootstrap `DontDestroyOnLoad` threw in the editor. Removed; `AppBoot.Awake` still does it in play mode.
 
 ## Blockers
 
-- Editor download/install. No other product blockers.
+- None for opening the project. Play-mode needs you (or an editor GUI session) because agent GUI launches have died at the licensing handshake before.
 
 ## Major decisions
 

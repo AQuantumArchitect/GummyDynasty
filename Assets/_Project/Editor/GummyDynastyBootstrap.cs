@@ -75,8 +75,7 @@ namespace GummyDynasty.Editor
             if (!File.Exists(BootScenePath))
             {
                 var boot = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
-                var bootGo = new GameObject("AppBoot", typeof(GummyDynasty.Core.AppBoot));
-                Object.DontDestroyOnLoad(bootGo);
+                new GameObject("AppBoot", typeof(GummyDynasty.Core.AppBoot));
                 EditorSceneManager.SaveScene(boot, BootScenePath);
             }
 

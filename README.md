@@ -1,8 +1,13 @@
 # GummyDynasty
 
-Unity **6.3 LTS** (`6000.3.22f1`, Personal) warfare toy box: gummy-bear armies in large physical battles. Hierarchical abstraction + Umwelt-derived cognition. Castle siege and a train fight are later evidence, not the product.
+Unity **6.3 LTS** (`6000.3.22f1`, Personal) warfare toy box: gummy-bear armies in large physical battles. Hierarchical abstraction + Umwelt-derived cognition. Castle and train are first-pass showcases (phones + machines + stacks). The representation ladder is still later.
 
-Read `Docs/` before changing architecture.
+Product spec (do not rewrite lightly):
+
+- `Docs/Founding/Build-Objective.md` — what the finished engine is
+- `Docs/Founding/Execution-Directive.md` — how to run the program
+
+Read `Docs/PROJECT_STATE.md` before changing architecture.
 
 | Doc | Role |
 |---|---|
@@ -11,17 +16,22 @@ Read `Docs/` before changing architecture.
 | `Docs/UMWELT_MAPPING.md` | what we took from `ws-win/umwelt` |
 | `Docs/RESEARCH_LEDGER.md` | experiments |
 | `Docs/BENCHMARKS.md` | frame-time tables |
-| `Docs/HANDOFF.md` | how a new Unity dev pokes the toy |
+| `Docs/HANDOFF.md` | 60-second toy for a friend |
+| `Docs/WISHLIST.md` | scale research after the friend drop |
 
 ## Open
 
-1. Unity Hub as `somapptic@gmail.com`. Editor **6000.3.22f1** only (never 2022.3.65f1).
-2. Project path: `C:\Users\Luke Spooner\wkspaces\GummyDynasty`.
-3. First open imports packages and runs bootstrap (URP + Boot/Main + toy arena).
+1. Clone this repo. Unity Hub, your own account. Editor **6000.3.22f1** only (never 2022.3.65f1).
+2. Hub → Projects → Add → Add project from disk → the cloned `GummyDynasty` folder.
+3. First open imports packages and runs bootstrap (URP + Boot/Main + toy arena). Then read `Docs/HANDOFF.md`.
 
 ## Play the toy
 
-`1/2/3` spawn · click select · space launch · `K` knock · `F` fire · `B` smash wall · `R` reset · `F5–F8` bench · RMB orbit.
+`1/2/3` spawn · click a gummy (inspector) · `space`/`V` yeet · `K` knock · `G`/FIRE · `C`/LOB · `T`/DROP · `X`/SMASH · `4` march west · phone QR / URL (commander + artillery) · `7`/`8`/`9` pit/castle/train · `R` reset · RMB orbit.
+
+Agent benches (no Unity license): `Tools/run-harness.ps1` → `Logs/harness-report.md`. Play benches write `Logs/play-bench.jsonl`.
+
+Edit these, not the factory: `Personalities/Gummy`, `Projectiles/Candy`, `Units/Levy`. Large-scale ghosts (`5`/`6`/`F9`) stay behind the HUD RESEARCH toggle. See `Docs/WISHLIST.md`.
 
 ## Layout
 

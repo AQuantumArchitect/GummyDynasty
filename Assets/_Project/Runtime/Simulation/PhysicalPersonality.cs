@@ -23,9 +23,9 @@ namespace GummyDynasty.Simulation
         [Header("Jelly")]
         [Min(0f)] public float JointSpring = 180f;
         [Min(0f)] public float JointDamper = 14f;
-        [Range(0f, 1f)] public float Bounciness = 0.45f;
-        [Range(0f, 1f)] public float DynamicFriction = 0.55f;
-        [Range(0f, 1f)] public float StaticFriction = 0.7f;
+        [Range(0f, 1f)] public float Bounciness = 0.22f;
+        [Range(0f, 1f)] public float DynamicFriction = 0.72f;
+        [Range(0f, 1f)] public float StaticFriction = 0.85f;
         [Range(0f, 0.5f)] public float Squash = 0.22f;
 
         [Header("Combat feel")]
@@ -33,6 +33,7 @@ namespace GummyDynasty.Simulation
         [Min(0f)] public float KnockImpulse = 6.5f;
         [Min(0.05f)] public float RecoverySeconds = 1.4f;
         [Min(0f)] public float StandForce = 28f;
+        [Min(0f)] public float WalkForce = 16f;
 
         public static PhysicalPersonality CreateRuntime(string displayName, Color color, float mass, float height, float launch, float knock)
         {
@@ -43,6 +44,37 @@ namespace GummyDynasty.Simulation
             p.Height = height;
             p.LaunchMultiplier = launch;
             p.KnockImpulse = knock;
+            return p;
+        }
+
+        public static PhysicalPersonality GummyPreset()
+        {
+            return CreateRuntime("Gummy", new Color(0.95f, 0.22f, 0.36f), 2.8f, 1.85f, 1f, 6.5f);
+        }
+
+        public static PhysicalPersonality KnightPreset()
+        {
+            var p = CreateRuntime("Knight", new Color(0.35f, 0.2f, 0.7f), 7.2f, 2.35f, 0.7f, 10f);
+            p.JointSpring = 240f;
+            p.RecoverySeconds = 2.1f;
+            p.WalkForce = 10f;
+            return p;
+        }
+
+        public static PhysicalPersonality ScoutPreset()
+        {
+            var p = CreateRuntime("Scout", new Color(0.2f, 0.85f, 0.45f), 1.3f, 1.15f, 1.45f, 4.2f);
+            p.JointSpring = 120f;
+            p.RecoverySeconds = 0.7f;
+            p.WalkForce = 22f;
+            return p;
+        }
+
+        public static PhysicalPersonality MarcherPreset()
+        {
+            var p = CreateRuntime("Marcher", new Color(0.98f, 0.35f, 0.18f), 2.2f, 1.65f, 1f, 6f);
+            p.RecoverySeconds = 0.85f;
+            p.WalkForce = 22f;
             return p;
         }
     }

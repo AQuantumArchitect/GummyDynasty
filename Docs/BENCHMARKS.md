@@ -14,11 +14,17 @@ Prefer p50 / p95 / p99 frame time (ms) over a single FPS number.
 |  | A | active gummies | 16 |  |  |  |  |
 |  | A | active gummies | 32 |  |  |  |  |
 |  | A | active gummies | 64 |  |  |  |  |
-|  | B | logical only | 1000 |  |  |  | M4 |
+| 2026-08-17 | A | human play | ~100 |  |  |  | Play report: "handled 100s with ease." No p50/p95 yet. |
+| 2026-08-17 | B | harness logical tick | 1000 | 0.046 |  |  | `Tools/run-harness.ps1` — ms **per Tick()**, not frame time. No PhysX. |
+| 2026-08-17 | B | harness logical tick | 3000 | 0.141 |  |  | same harness |
 |  | C | mixed fidelity |  |  |  |  | M5/M6 |
 |  | D | refinement storm |  |  |  |  | M6 |
 |  | E | autonomous fight |  |  |  |  | M3+ |
-|  | F | wall collapse |  |  |  |  | M8 |
-|  | G | fake phone clients |  |  |  |  | M10 |
+|  | F | wall collapse |  |  |  |  | Play **SMASH** (or LOB the tower). Sampler writes this row to `Logs/play-bench.jsonl`. |
+|  | G | two phones on LAN |  |  |  |  | Play: commander + artillery. Harness E9 covers validate only. |
 
-How to run A (once the editor is open): play Main, press the bench buttons in the toy HUD, wait 8 seconds per step, copy the overlay numbers here.
+How to run A (once the editor is open): play Main, press F5–F8 (or the bench is still key-only for A), wait 8 seconds per step, copy the overlay numbers here.
+
+How to run B: play Main, press **5** if you want to see the army first, then **F9** / **BENCH B**. First 5s ticks logicals only (status: "ticking N logicals"). Next 5s spawns N cubes and marches them the same way. Copy both p50/p95 lines. Destroyed cubes should vanish when it finishes.
+
+How to run F: play Main, press **X** / **SMASH** (or knock the north tower). Wait 5 seconds. Copy the overlay line into this table.

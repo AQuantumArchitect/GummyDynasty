@@ -21,9 +21,14 @@ namespace GummyDynasty.Simulation
 
         public void Sample()
         {
+            Add(Time.unscaledDeltaTime * 1000f);
+        }
+
+        public void Add(float ms)
+        {
             if (!Running)
                 return;
-            _ms.Add(Time.unscaledDeltaTime * 1000f);
+            _ms.Add(ms);
         }
 
         public void End()

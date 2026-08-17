@@ -34,3 +34,5 @@ InitTestScene*.unity*
 .plastic/
 crashlytics-build.properties
 sysinfo.txt
+Tools/Harness/bin/
+Tools/Lab/*.json

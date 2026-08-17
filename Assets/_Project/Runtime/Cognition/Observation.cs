@@ -3,7 +3,10 @@ namespace GummyDynasty.Cognition
     public enum NodeKind : byte
     {
         World = 0,
-        Actor = 1
+        Actor = 1,
+        Faction = 2,
+        Army = 3,
+        Formation = 4
     }
 
     public enum RoleMode : byte

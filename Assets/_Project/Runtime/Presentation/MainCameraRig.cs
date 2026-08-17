@@ -6,12 +6,22 @@ namespace GummyDynasty.Presentation
     [RequireComponent(typeof(Camera))]
     public sealed class MainCameraRig : MonoBehaviour
     {
-        [SerializeField] Vector3 lookTarget = new Vector3(0f, 0.8f, 0f);
-        [SerializeField] float distance = 14f;
-        [SerializeField] float yaw = 20f;
-        [SerializeField] float pitch = 28f;
+        [SerializeField] Vector3 lookTarget = new Vector3(0f, 1.1f, 0f);
+        [SerializeField] float distance = 10f;
+        [SerializeField] float yaw = 18f;
+        [SerializeField] float pitch = 26f;
         [SerializeField] float zoomSpeed = 6f;
         [SerializeField] Vector2 pitchLimits = new Vector2(12f, 70f);
+
+        void OnEnable()
+        {
+            var cam = GetComponent<Camera>();
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.38f, 0.66f, 0.9f);
+            if (GetComponent<LogicalCrowdView>() == null)
+                gameObject.AddComponent<LogicalCrowdView>();
+            Place();
+        }
 
         void LateUpdate()
         {
@@ -30,6 +40,11 @@ namespace GummyDynasty.Presentation
                 }
             }
 
+            Place();
+        }
+
+        void Place()
+        {
             var rot = Quaternion.Euler(pitch, yaw, 0f);
             transform.position = lookTarget + rot * (Vector3.back * distance);
             transform.LookAt(lookTarget);

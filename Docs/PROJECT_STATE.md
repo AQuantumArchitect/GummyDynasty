@@ -4,50 +4,43 @@ Keep this short. Reread it.
 
 ## Current milestone
 
-**M0 complete. M1/M2 code compiled and tested. Waiting on a human play-mode pass.**
+**Phones + showcases (Waves P and S) are in the pit.** Founding spec lives in `Docs/Founding/`. Wave **R (representation research)** is next, and still parked until you ask for it.
 
-Editor `6000.3.22f1` Personal is installed at `C:\Program Files\Unity\Hub\Editor\6000.3.22f1`. First batchmode open compiled every GummyDynasty assembly. Bootstrap created URP + Boot/Main. EditMode tests: **9/9 passed**.
+Editor `6000.3.22f1` Personal.
 
 ## Working
 
-- Unity 6.3.22 Personal (ULF + somapptic assigned seat)
-- Windows IL2CPP / standalone support
-- Assembly walls: Core, Cognition, Simulation, Presentation, Input, UI, Editor, Tests
-- `BeliefField` + 7 cognition tests
-- Session clock + 2 tests
-- M1/M2 toy code compiled into Main: gummies, crate wall, projectiles, host HUD, orbit camera
-- URP asset + Boot/Main scenes on disk
+- Hopping gummies, camera candy (G), pit catapult (C / LOB), pit cannon (phone artillery), smash wall
+- Phone join: LAN URL + QR on the HUD. Commander issues west/hold. Artillery aims and fires catapult or cannon.
+- One mode asset: Hold WEST. Victory when the ranked file plants in the flag band.
+- Showcases: **PIT** / **CASTLE** / **TRAIN** (`7`/`8`/`9` or HUD). Same hoppers, stacks, machines, phones.
+- `4` west march: formation **spreads** at the wall, **through-breach** when a hole opens, **hold** at WEST
+- Friend HUD: toys + showcase + join URL. Research is backtick / `5`.
+- Agent harness: `Tools/run-harness.ps1` now owns **behavior / contact** (wall gap, collisions, stacks, decks), not just cognition math. Feel stays Play.
 
-## Not working yet
+## Not now
 
-- Play-mode evidence (Benchmark A numbers). Batchmode cannot flop gummies.
-- Hierarchical factions, ladder, phones, machines, castle, train
+- M5–M7 representation ladder / crowd abstraction — after you ask (see `Docs/WISHLIST.md`)
+- Extra smash walls or a gate
+- Hop or candy retune unless Play reports a regression
 
 ## Immediate objectives
 
-1. Open Main in the editor GUI and play the toy.
-2. Record Benchmark A (F5–F8) on this laptop.
-3. Tune default jelly if the first pile is boring or explodes.
+1. Human play of feel only (hop, slide, QR scan, train ride in the room). Agent iterates wall-gap / collision / hold / artillery math via `Tools/run-harness.ps1`. If the editor is already open, `GummyDynasty > Run Behavior Lab (PhysX)` or drop `Tools/Lab/inbox.json` for a real PhysX pass.
+2. Wave R stays parked. Cases for it are at the bottom of `Docs/WISHLIST.md`.
 
 ## Known failures
 
-- First batchmode quit reported compiler errors because the EditMode asmdef listed TestRunner twice. Fixed.
-- Bootstrap `DontDestroyOnLoad` threw in the editor. Removed; `AppBoot.Awake` still does it in play mode.
-
-## Blockers
-
-- None for opening the project. Play-mode needs you (or an editor GUI session) because agent GUI launches have died at the licensing handshake before.
+- Agent Unity launches still die at the Hub license handshake. The harness is the autonomous loop. A one-column crate slit is **not** a hole anymore (a marcher cannot fit); two columns or rubble is.
+- `5` / backtick still exist. Ghost sheet has no collision. Not the toy.
+- First-pass castle/train have **no** refine/collapse. They are phones + machines + destruction + formation intent, not the representation hypothesis.
+- Leftover slide on grass is still a Play follow-up, not a wave. Train hoppers now inherit the deck so they should not be rug-pulled.
+- Wave R stays parked. Playtest cases for it live at the bottom of `Docs/WISHLIST.md`.
 
 ## Major decisions
 
-- Hybrid sim: PhysX only for active bodies; logical/aggregate are C# data.
-- Umwelt adapted in C#, not embedded Python.
-- α-blend default. Belavkin/Bloch compact state is an M7 experiment.
-- Phones are browsers against an authoritative host.
-- No day-one Entities/DOTS.
-
-## Next actions
-
-- Install 6000.3.22f1 + IL2CPP module.
-- First-open GummyDynasty.
-- Play the toy. Write the first bench row.
+- Phones before research.
+- Local HTTP, not Unity Netcode. Host is authoritative.
+- Cannon is the second machine. No gate.
+- Castle/train compose existing primitives. A train-specific brain is an abstraction failure.
+- Formation owns the road. Individuals only override for incoming threat or pain. X is enough rubble.

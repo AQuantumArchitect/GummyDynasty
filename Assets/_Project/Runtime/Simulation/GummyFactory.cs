@@ -5,8 +5,6 @@ namespace GummyDynasty.Simulation
     public static class GummyFactory
     {
         static int _serial;
-        static PhysicsMaterial _sharedMat;
-
         public static GummyBody Spawn(PhysicalPersonality personality, Vector3 position, Quaternion rotation, Transform parent = null)
         {
             if (personality == null)
@@ -49,7 +47,7 @@ namespace GummyDynasty.Simulation
 
             var parts = new[] { hipsRb, bellyRb, headRb, armLRb, armRRb };
             var body = root.AddComponent<GummyBody>();
-            body.Bind(id, personality, hipsRb, parts);
+            body.Bind(id, personality, hipsRb, bellyRb, headRb, parts);
 
             var agent = root.AddComponent<GummyAgent>();
             agent.Bind(body);
@@ -130,14 +128,15 @@ namespace GummyDynasty.Simulation
 
         static PhysicsMaterial SharedMaterial(PhysicalPersonality p)
         {
-            if (_sharedMat == null)
-                _sharedMat = new PhysicsMaterial("GummyJelly");
-            _sharedMat.bounciness = p.Bounciness;
-            _sharedMat.dynamicFriction = p.DynamicFriction;
-            _sharedMat.staticFriction = p.StaticFriction;
-            _sharedMat.bounceCombine = PhysicsMaterialCombine.Maximum;
-            _sharedMat.frictionCombine = PhysicsMaterialCombine.Average;
-            return _sharedMat;
+            var mat = new PhysicsMaterial(p.DisplayName + "Jelly")
+            {
+                bounciness = p.Bounciness,
+                dynamicFriction = Mathf.Max(0.82f, p.DynamicFriction),
+                staticFriction = Mathf.Max(0.92f, p.StaticFriction),
+                bounceCombine = PhysicsMaterialCombine.Minimum,
+                frictionCombine = PhysicsMaterialCombine.Maximum
+            };
+            return mat;
         }
 
         static Color Darken(Color c, float amt)
@@ -157,14 +156,18 @@ namespace GummyDynasty.Simulation
                 return existing;
             if (_src == null)
             {
-                var sh = Shader.Find("Universal Render Pipeline/Lit");
-                if (sh == null) sh = Shader.Find("Standard");
+                var sh = Shader.Find("Universal Render Pipeline/Lit")
+                         ?? Shader.Find("Universal Render Pipeline/Unlit")
+                         ?? Shader.Find("Unlit/Color")
+                         ?? Shader.Find("Sprites/Default")
+                         ?? Shader.Find("Hidden/InternalErrorShader");
                 _src = new Material(sh);
                 if (_src.HasProperty("_Smoothness")) _src.SetFloat("_Smoothness", 0.72f);
                 if (_src.HasProperty("_Metallic")) _src.SetFloat("_Metallic", 0.05f);
             }
             var m = new Material(_src) { color = color };
             if (m.HasProperty("_BaseColor")) m.SetColor("_BaseColor", color);
+            if (m.HasProperty("_Color")) m.SetColor("_Color", color);
             Cache[color] = m;
             return m;
         }

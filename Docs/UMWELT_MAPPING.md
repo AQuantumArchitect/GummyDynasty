@@ -31,6 +31,7 @@ Game-shaped proof already in-repo: `examples/fledgeling_fog`, `examples/gridworl
 - Port the host contract, not `umwelt.substrate`.
 - Tick on the sim clock, not Python `datetime`.
 - One `BeliefField` per battle (shared world) plus per-faction / per-agent nodes.
+- Logical soldiers (M4) do **not** get a belief node each. They inherit a formation prior on the struct. A node is minted only when the soldier is embodied.
 - Compact manifolds (Bloch, ρ, cumulants) only as **M7 comparison** if scalar/statistical aggregates fail reconstruction.
 
 ## Reject for the game process
@@ -48,4 +49,4 @@ Game-shaped proof already in-repo: `examples/fledgeling_fog`, `examples/gridworl
 
 The field earns a permanent job only if, on 2–8 gummies, inspectable history (just-flattened vs untouched) produces different action, *or* self-tag prevents a measurable poison, *or* hierarchical reduce in M3 is clearly cheaper than N independent brains.
 
-Until that measurement, it is the inspectable bus and the prior for M3 — not a religion.
+Harness + EditMode 2026-08-17: flattened history → `down`, neighbor → `march-west`. The field stays the inspectable bus. Policy stays the small resolver table.
